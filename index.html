@@ -1,1 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raio-X Estratégico — Orís Criativos | YM Marketing & Negócios</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #F4F6FA;
+    --azul-escuro: #E6EBF5;
+    --azul: #0055E5;
+    --azul-claro: #1A6FE8;
+    --branco: #111827;
+    --cinza-grafite: #1F2937;
+    --cinza-claro: #E5E7EB;
+    --cinza-medio: #6B7280;
+    --cinza-borda: #D1D5DB;
+    --verde: #059669;
+    --amarelo: #B45309;
+    --vermelho: #DC2626;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #F4F6FA;
+    color: #111827;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(244,246,250,0.96);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0 40px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo .ym-mark { width: 28px; height: 28px; }
+  .nav-logo span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em; color: var(--branco); text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: #6B7280; text-decoration: none;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--branco); }
+
+  .nav-badge {
+    background: rgba(0,85,229,0.08);
+    border: 1px solid rgba(0,85,229,0.2);
+    color: #0044BB;
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 120px 80px 80px; position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,85,229,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(180,200,240,0.35) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 1200px; width: 100%; }
+
+  .hero-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .badge-blue { background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.2); color: #1A4DB8; }
+  .badge-green { background: rgba(5,150,105,0.08); border: 1px solid rgba(5,150,105,0.22); color: #065F46; }
+  .badge-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: currentColor;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .hero-label {
+    font-size: 11px; font-weight: 600; color: var(--azul-claro);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(48px, 6vw, 80px); font-weight: 800;
+    line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, #003FBF 0%, #0055E5 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 18px; font-weight: 400; color: #6B7280;
+    max-width: 560px; margin-bottom: 48px; line-height: 1.7;
+  }
+
+  .hero-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+
+  .hero-card {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(0,0,0,0.08); border-radius: 12px; padding: 20px;
+    transition: border-color 0.3s; backdrop-filter: blur(4px);
+  }
+  .hero-card:hover { border-color: rgba(0,85,229,0.3); }
+  .hero-card-label {
+    font-size: 10px; font-weight: 600; color: #6B7280;
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .hero-card-value { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: var(--branco); }
+
+  .hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #0055E5; color: #FFFFFF;
+    padding: 14px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: #003FBF; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,102,255,0.3); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #6B7280; font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: #111827; }
+
+  /* ─── SECTION ─── */
+  section { padding: 100px 80px; max-width: 1400px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px; font-weight: 600; color: var(--azul-claro);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: #0055E5; border-radius: 1px; }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 3.5vw, 44px); font-weight: 800;
+    letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 16px;
+  }
+
+  .section-desc { font-size: 16px; color: #6B7280; max-width: 600px; line-height: 1.7; margin-bottom: 60px; }
+
+  .divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0 80px; }
+
+  /* ─── VISÃO GERAL ─── */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .overview-card {
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px; padding: 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .overview-card.featured {
+    background: linear-gradient(135deg, rgba(0,85,229,0.05) 0%, rgba(210,225,255,0.4) 100%);
+    border-color: rgba(0,85,229,0.15); grid-column: span 2;
+  }
+  .overview-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #6B7280; margin-bottom: 16px;
+  }
+  .overview-card p { font-size: 16px; line-height: 1.75; color: #374151; }
+  .overview-card blockquote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px; font-weight: 500; line-height: 1.5; color: #111827;
+    border-left: 3px solid #0055E5; padding-left: 24px;
+  }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag { padding: 5px 12px; border-radius: 100px; font-size: 12px; font-weight: 500; }
+  .tag-red { background: rgba(220,38,38,0.07); border: 1px solid rgba(220,38,38,0.2); color: #991B1B; }
+  .tag-yellow { background: rgba(180,83,9,0.07); border: 1px solid rgba(180,83,9,0.2); color: #7C2D12; }
+  .tag-green { background: rgba(5,150,105,0.07); border: 1px solid rgba(5,150,105,0.2); color: #065F46; }
+
+  /* ─── DASHBOARD ─── */
+  .dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+
+  .metric-card {
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px; padding: 28px; position: relative; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .metric-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .metric-card.red::before { background: var(--vermelho); }
+  .metric-card.yellow::before { background: var(--amarelo); }
+  .metric-card.green::before { background: var(--verde); }
+  .metric-card.blue::before { background: var(--azul); }
+
+  .metric-title {
+    font-size: 11px; font-weight: 600; color: #6B7280;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .metric-score {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px; font-weight: 800; line-height: 1; margin-bottom: 8px;
+  }
+  .metric-score.red { color: var(--vermelho); }
+  .metric-score.yellow { color: var(--amarelo); }
+  .metric-score.green { color: var(--verde); }
+  .metric-score.blue { color: var(--azul-claro); }
+
+  .metric-max { font-size: 14px; font-weight: 400; color: #6B7280; }
+  .metric-desc { font-size: 13px; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+
+  .progress-bar { margin-top: 16px; height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+
+  /* ─── SEMÁFORO ─── */
+  .semaforo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .semaforo-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px; padding: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .semaforo-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+  .dot-red { background: #DC2626; box-shadow: 0 0 8px rgba(220,38,38,0.4); }
+  .dot-yellow { background: #D97706; box-shadow: 0 0 8px rgba(217,119,6,0.4); }
+  .dot-green { background: #059669; box-shadow: 0 0 8px rgba(5,150,105,0.4); }
+
+  .semaforo-text h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .semaforo-text p { font-size: 13px; color: #6B7280; line-height: 1.5; }
+
+  /* ─── ANÁLISE PROFUNDA ─── */
+  .analise-block {
+    margin-bottom: 48px;
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .analise-header {
+    padding: 24px 32px; border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex; align-items: center; gap: 16px;
+  }
+  .analise-icon {
+    width: 40px; height: 40px;
+    background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.18);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .analise-header h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; }
+  .analise-header .status-badge { margin-left: auto; }
+  .analise-body { padding: 32px; }
+
+  .insight-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .insight-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 14px; line-height: 1.6; color: #374151;
+  }
+  .insight-list li::before { content: '→'; color: #0055E5; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .insight-list.critical li::before { content: '✗'; color: #DC2626; }
+  .insight-list.positive li::before { content: '✓'; color: #059669; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .col-label {
+    font-size: 13px; font-weight: 600; color: #6B7280;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;
+  }
+
+  .insight-box {
+    margin-top: 24px;
+    background: rgba(0,85,229,0.04); border: 1px solid rgba(0,85,229,0.15);
+    border-radius: 10px; padding: 20px 24px;
+  }
+  .insight-box-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #0055E5; margin-bottom: 6px;
+  }
+  .insight-box-text { font-size: 14px; color: #374151; line-height: 1.65; }
+
+  /* ─── OPORTUNIDADES ─── */
+  .oport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .oport-card {
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px; padding: 28px; transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .oport-card:hover { border-color: rgba(0,85,229,0.3); transform: translateY(-2px); }
+
+  .oport-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700; color: #0055E5;
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .oport-card h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+  .oport-card p { font-size: 13px; color: #4B5563; line-height: 1.65; }
+
+  .oport-impact {
+    margin-top: 16px; display: flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── ROADMAP ─── */
+  .roadmap-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .roadmap-timeline::before {
+    content: ''; position: absolute; top: 36px; left: 16.67%; right: 16.67%;
+    height: 1px; background: linear-gradient(90deg, #0055E5 0%, rgba(0,85,229,0.15) 100%);
+  }
+
+  .roadmap-phase { padding: 0 24px 0 0; }
+  .roadmap-phase:last-child { padding-right: 0; }
+
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .phase-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .phase-num { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #0055E5; }
+  .phase-period { font-size: 11px; font-weight: 500; color: #6B7280; margin-left: auto; }
+
+  .roadmap-phase h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+
+  .roadmap-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .roadmap-items li {
+    display: flex; align-items: flex-start; gap: 10px; font-size: 13px;
+    color: #374151; line-height: 1.5;
+    padding: 10px 12px;
+    background: #F9FAFB; border: 1px solid rgba(0,0,0,0.07); border-radius: 8px;
+  }
+  .roadmap-items li .item-icon { font-size: 14px; flex-shrink: 0; }
+
+  .roadmap-phase.active .roadmap-items li {
+    border-color: rgba(0,85,229,0.15); background: rgba(0,85,229,0.04);
+  }
+
+  /* ─── PRÓXIMOS PASSOS ─── */
+  .proximos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+
+  .passo-card {
+    background: #FFFFFF; border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px; padding: 32px; display: flex; flex-direction: column; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .passo-num {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(0,85,229,0.08); border: 1px solid rgba(0,85,229,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--azul-claro);
+  }
+  .passo-card h3 { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; }
+  .passo-card p { font-size: 13px; color: #4B5563; line-height: 1.65; flex: 1; }
+  .passo-deadline { font-size: 11px; font-weight: 600; color: #0055E5; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(0,85,229,0.06) 0%, rgba(200,215,255,0.35) 100%);
+    border: 1px solid rgba(0,85,229,0.15); border-radius: 24px;
+    padding: 64px; text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,85,229,0.08) 0%, transparent 70%); pointer-events: none;
+  }
+  .cta-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px; font-weight: 800; letter-spacing: -0.025em;
+    margin-bottom: 16px; position: relative;
+  }
+  .cta-section p {
+    font-size: 16px; color: #4B5563; max-width: 480px;
+    margin: 0 auto 36px; line-height: 1.7; position: relative;
+  }
+  .cta-buttons { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366; color: #111827;
+    padding: 14px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s;
+  }
+  .btn-whatsapp:hover { background: #1EBC57; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,211,102,0.25); }
+
+  .next-service {
+    margin-top: 48px; padding: 24px 32px;
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 12px; display: flex; align-items: center; gap: 20px; position: relative;
+  }
+  .next-service-info { flex: 1; text-align: left; }
+  .next-service-label { font-size: 10px; font-weight: 600; color: #6B7280; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .next-service h4 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .next-service p { font-size: 13px; color: #6B7280; margin: 0; }
+  .next-service-price { text-align: right; }
+  .next-service-price .price { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--azul-claro); }
+  .next-service-price .price-label { font-size: 11px; color: #6B7280; }
+
+  /* ─── FOOTER ─── */
+  footer { background: #EAEEF5; border-top: 1px solid rgba(0,0,0,0.09); padding: 60px 80px 40px; }
+
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .footer-logo .ym-text { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+  .footer-brand p { font-size: 14px; color: #6B7280; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { font-size: 11px; font-weight: 700; color: #6B7280; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 14px; color: #4B5563; text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+  .footer-col a:hover { color: #111827; }
+  .footer-bottom { border-top: 1px solid rgba(0,0,0,0.09); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom p { font-size: 12px; color: #9CA3AF; }
+  .footer-sig { font-size: 12px; color: #9CA3AF; font-style: italic; }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section, .hero { padding: 80px 24px; }
+    .divider { margin: 0 24px; }
+    footer { padding: 40px 24px; }
+    .hero-cards { grid-template-columns: repeat(2, 1fr); }
+    .dashboard-grid { grid-template-columns: 1fr 1fr; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .overview-card.featured { grid-column: span 1; }
+    .semaforo-grid { grid-template-columns: 1fr; }
+    .roadmap-timeline { grid-template-columns: 1fr; }
+    .roadmap-timeline::before { display: none; }
+    .oport-grid { grid-template-columns: 1fr; }
+    .proximos-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .cta-section { padding: 40px 24px; }
+    .next-service { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .hero-cards { grid-template-columns: 1fr 1fr; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <svg class="ym-mark" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 10 L50 60 L90 10" stroke="#3D5BFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="50" cy="90" r="12" fill="#3D5BFF"/>
+    </svg>
+    <span>YM Marketing & Negócios</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#visao">Visão Geral</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#analise">Análise</a></li>
+    <li><a href="#oportunidades">Oportunidades</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#proximos">Próximos Passos</a></li>
+  </ul>
+  <span class="nav-badge">Raio-X Estratégico</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="badge badge-green">
+        <span class="badge-dot"></span>
+        Análise Concluída
+      </span>
+      <span class="badge badge-blue">Maio 2026 · Confidencial</span>
+    </div>
+
+    <div class="hero-label">Raio-X Estratégico — Presença Digital</div>
+
+    <h1>
+      Mateus &amp; Helen<br>
+      <span class="highlight">Orís Criativos</span>
+    </h1>
+
+    <p class="hero-sub">
+      Uma leitura estratégica da sua presença digital atual.
+      O que está travando sua captação, onde está o potencial real e qual o próximo movimento certo.
+    </p>
+
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-label">Equipe</div>
+        <div class="hero-card-value">Mateus Gomes &amp; Helen Rodrigues</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Segmento</div>
+        <div class="hero-card-value">Estrutura Digital &amp; Direção Criativa</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Canal Principal</div>
+        <div class="hero-card-value">@oriscriativos · Instagram</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Status Digital</div>
+        <div class="hero-card-value" style="color:#D97706;">⚠ Presença Inexistente</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#visao" class="btn-primary">
+        Ver Análise Completa
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#proximos" class="btn-ghost">
+        Pular para Próximos Passos →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- VISÃO GERAL -->
+<section id="visao">
+  <div class="section-label">01 — Visão Geral Executiva</div>
+  <h2 class="section-title">O que este Raio-X revelou</h2>
+  <p class="section-desc">Uma leitura direta sobre o momento atual da Orís Criativos e o potencial real represado na operação digital.</p>
+
+  <div class="overview-grid">
+    <div class="overview-card featured">
+      <h3>Síntese Estratégica</h3>
+      <blockquote>
+        "A Orís tem competência técnica real — 16 anos de design, especialização em SEO e marketing, proposta comercial estruturada. O problema não é capacidade. É que uma agência de marketing digital não tem presença digital: 3 posts, 26 seguidores e captação 100% por indicação."
+      </blockquote>
+      <div class="tag-list">
+        <span class="tag tag-green">✓ Competência técnica consolidada</span>
+        <span class="tag tag-green">✓ Proposta comercial profissional estruturada</span>
+        <span class="tag tag-green">✓ Processo interno de atendimento bem definido</span>
+        <span class="tag tag-green">✓ Lead magnet criado (manual "não erre mais")</span>
+        <span class="tag tag-yellow">⚠ Portfolio desatualizado e sem estrutura</span>
+        <span class="tag tag-yellow">⚠ Precificação percebida como barreira de fechamento</span>
+        <span class="tag tag-red">✗ Instagram com 3 posts e 26 seguidores</span>
+        <span class="tag tag-red">✗ Captação 100% dependente de indicação</span>
+        <span class="tag tag-red">✗ Sem constância de conteúdo — nunca mantiveram</span>
+        <span class="tag tag-red">✗ Clientes recebem proposta mas não fecham</span>
+      </div>
+    </div>
+
+    <div class="overview-card">
+      <h3>O Problema Central</h3>
+      <p>
+        Mateus e Helen possuem um ativo estratégico poderoso: uma dupla com complementaridade técnica perfeita — design de 16 anos de um lado, marketing e SEO do outro. A proposta comercial é bem estruturada e os serviços têm valor real. Mas existe uma contradição fatal: uma empresa de marketing digital que estrutura a presença de outros negócios não tem presença digital própria. 3 posts e 26 seguidores em 2026 comunicam o oposto do que a empresa vende. O cliente chega pela indicação, recebe a proposta, vê o valor e desconfia. Não fecha.
+      </p>
+    </div>
+
+    <div class="overview-card">
+      <h3>O Potencial Identificado</h3>
+      <p>
+        A Orís tem tudo para se tornar referência em estruturação digital para pequenos negócios — um mercado com altíssima demanda e poucos prestadores com profundidade técnica real. A combinação de design estratégico + SEO + estrutura de conteúdo é rara no segmento de entrada. O que falta é transformar a própria empresa no case número um — usar a presença digital da Orís como prova viva do que ela entrega para clientes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DASHBOARD -->
+<section id="diagnostico">
+  <div class="section-label">02 — Diagnóstico Visual</div>
+  <h2 class="section-title">Painel de Saúde Digital</h2>
+  <p class="section-desc">Indicadores-chave avaliados com base na análise da presença digital atual e dados do formulário.</p>
+
+  <div class="dashboard-grid">
+    <div class="metric-card red">
+      <div class="metric-title">Presença no Instagram</div>
+      <div class="metric-score red">1.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">3 posts, 26 seguidores, sem destaques, sem bio estratégica. Conta praticamente inexistente para uma agência de marketing.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:10%; background:#DC2626;"></div>
+      </div>
+    </div>
+
+    <div class="metric-card red">
+      <div class="metric-title">Estratégia de Conteúdo</div>
+      <div class="metric-score red">1.5<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Declarado "quase nunca" no formulário. Tentativas anteriores sem constância. Nenhuma linha editorial ativa.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:15%; background:#DC2626;"></div>
+      </div>
+    </div>
+
+    <div class="metric-card red">
+      <div class="metric-title">Captação & Conversão</div>
+      <div class="metric-score red">2.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">100% por indicação, sem recebimento ativo de contatos. Leads chegam mas não fecham após receber proposta — barreira de conversão crítica.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:20%; background:#DC2626;"></div>
+      </div>
+    </div>
+
+    <div class="metric-card yellow">
+      <div class="metric-title">Percepção de Valor</div>
+      <div class="metric-score yellow">4.5<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Boa impressão de qualidade no primeiro contato, mas o preço gera abandono. Falta estrutura de comunicação de valor antes da proposta chegar.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:45%; background:#D97706;"></div>
+      </div>
+    </div>
+
+    <div class="metric-card yellow">
+      <div class="metric-title">Clareza da Oferta</div>
+      <div class="metric-score yellow">5.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">Proposta comercial existe e está bem estruturada. Mas o público responde "mais ou menos" quando perguntado se entende o que a empresa faz — clareza insuficiente no digital.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:50%; background:#D97706;"></div>
+      </div>
+    </div>
+
+    <div class="metric-card green">
+      <div class="metric-title">Autoridade Técnica Real</div>
+      <div class="metric-score green">8.0<span class="metric-max">/10</span></div>
+      <div class="metric-desc">16 anos de design, especialização em SEO/marketing, processo de atendimento estruturado e lead magnet criado. Competência real que não chega ao digital.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width:80%; background:#059669;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="semaforo-grid">
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>Instagram — Crítico</h4>
+        <p>Uma agência de marketing com 3 posts e 26 seguidores comunica exatamente o oposto do que vende. Qualquer prospect que pesquisa a empresa antes de fechar encontra um perfil que destrói a credibilidade construída na reunião.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>Conversão pós-proposta — Crítico</h4>
+        <p>O principal ponto de perda identificado é após o envio da proposta. O cliente recebe o valor sem ter sido preparado para ele. Sem conteúdo de autoridade anterior, o preço parece alto porque não há contexto de valor construído.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-red"></div>
+      <div class="semaforo-text">
+        <h4>Portfólio desatualizado — Crítico</h4>
+        <p>Portfólio existe mas está desatualizado e nada estruturado, segundo o próprio formulário. Em um negócio de criação visual, o portfólio é o argumento de venda mais poderoso — e está inacessível ou irrelevante.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-yellow"></div>
+      <div class="semaforo-text">
+        <h4>Gestão de tempo e processos — Atenção</h4>
+        <p>Dificuldade declarada com gestão de tempo, falta de organização e risco de ficar preso em execução operacional. Escalar sem processos definidos gera gargalo imediato na qualidade das entregas.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-yellow"></div>
+      <div class="semaforo-text">
+        <h4>Precificação sem âncora — Atenção</h4>
+        <p>Serviços de R$ 630 a R$ 4.000 sem estrutura de comunicação de valor prévia. O cliente chega frio, vê o preço e abandona. Falta uma jornada de aquecimento antes da proposta.</p>
+      </div>
+    </div>
+    <div class="semaforo-item">
+      <div class="semaforo-dot dot-green"></div>
+      <div class="semaforo-text">
+        <h4>Proposta comercial estruturada — Positivo</h4>
+        <p>PDF de apresentação com 12 slides, 3 planos (R$ 630 / R$ 2.450 / R$ 4.000), portfólio de serviços, linguagem profissional e identidade visual consistente. Base sólida de produto que precisa de distribuição.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ANÁLISE PROFUNDA -->
+<section id="analise">
+  <div class="section-label">03 — Análise Profunda</div>
+  <h2 class="section-title">O que está travando e o que está funcionando</h2>
+  <p class="section-desc">Leitura detalhada de cada frente com problemas identificados, consequências e caminhos possíveis.</p>
+
+  <!-- INSTAGRAM -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">📱</div>
+      <div>
+        <h3>Instagram — @oriscriativos</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">3 posts · 26 seguidores · 15 seguindo</div>
+      </div>
+      <span class="badge badge-blue status-badge">Crítico</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Problemas Identificados</p>
+          <ul class="insight-list critical">
+            <li>Conta criada e abandonada — 3 posts publicados, frequência "quase nunca" declarada no formulário</li>
+            <li>Bio genérica: "Deixamos seu negócio chique demais nas redes sociais!" — frase de impacto sem posicionamento real</li>
+            <li>Sem destaques organizados — visitante não consegue entender o que a empresa faz ou ver exemplos de trabalho</li>
+            <li>Foto de perfil é um gradiente abstrato — sem rosto, sem identidade humana, sem conexão</li>
+            <li>Nenhum post fixado estratégico — não há apresentação de serviços, portfólio ou prova social</li>
+            <li>26 seguidores em uma conta de agência de marketing destrói qualquer argumento de autoridade digital</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que Pode Funcionar</p>
+          <ul class="insight-list positive">
+            <li>Os 3 posts existentes têm identidade visual forte e linguagem diferenciada — direção criativa correta, falta volume</li>
+            <li>Linktree configurado com CTA de atendimento e lead magnet — estrutura de conversão já existe</li>
+            <li>Lead magnet "Pequeno Manual Não Erre Mais" já criado — ativo de topo de funil pronto para ser promovido</li>
+            <li>Nome @oriscriativos disponível e já registrado — identidade de marca consolidável</li>
+            <li>Mateus como diretor criativo e Helen como referência de marketing são personas com potencial — conteúdo de bastidores pode ser poderoso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-box-label">Insight Estratégico</div>
+        <div class="insight-box-text">A contradição mais prejudicial da Orís: <strong>uma empresa que vende presença digital não tem presença digital</strong>. Isso não é apenas uma oportunidade perdida de captação — é ativamente um argumento contra a contratação. Qualquer prospect que pesquisa a empresa antes de fechar encontra exatamente o perfil que a Orís diria para um cliente nunca ter. O Instagram da Orís precisa se tornar o principal portfólio e argumento de venda da empresa.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSICIONAMENTO -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">🎯</div>
+      <div>
+        <h3>Posicionamento & Proposta de Valor</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">Como a Orís aparece — e como deveria aparecer</div>
+      </div>
+      <span class="badge badge-blue status-badge">Crítico</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Diagnóstico Atual</p>
+          <ul class="insight-list critical">
+            <li>Tagline atual "Deixamos seu negócio chique demais nas redes sociais!" é criativa mas vaga — não comunica resultado, nicho ou diferencial</li>
+            <li>O público responde "mais ou menos" ao ser perguntado se entende o que a Orís faz — falha de clareza na comunicação</li>
+            <li>Sem nicho definido comunicado digitalmente — a empresa parece atender qualquer negócio, o que dilui autoridade</li>
+            <li>A proposta comercial existe e é boa, mas chega antes do prospect ser aquecido — sem jornada de valor prévia</li>
+            <li>Dificuldade declarada com "precificação dos serviços" — sinal de que o valor não está sendo comunicado com clareza antes do preço</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Posicionamento Possível</p>
+          <ul class="insight-list positive">
+            <li>Posicionamento potente: "Estruturamos marcas e presenças digitais com clareza, direção e propósito" — já existe na proposta comercial, precisa ir para o Instagram</li>
+            <li>A complementaridade Mateus (design) + Helen (SEO/marketing) é um diferencial concreto e raro — comunicar a dupla como produto</li>
+            <li>Foco em pequenos negócios que precisam se estruturar digitalmente do zero — nicho com alta demanda e pouca concorrência de qualidade</li>
+            <li>Tagline da Linktree "Se o seu negócio não aparece ele não sobrevive" é mais forte que a bio — essa é a mensagem certa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-box-label">Insight Estratégico</div>
+        <div class="insight-box-text">A proposta comercial da Orís já tem a frase de posicionamento ideal: <strong>"estruturamos marcas, websites e presenças digitais com clareza, direção e propósito"</strong>. Essa frase está em um PDF enviado após o contato. Ela deveria estar na bio do Instagram, no primeiro post fixado e na Linktree — no topo de toda a cadeia de comunicação, antes de qualquer proposta chegar.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONVERSÃO & FUNIL -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">📊</div>
+      <div>
+        <h3>Funil de Captação & Conversão</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">Do primeiro contato até o fechamento</div>
+      </div>
+      <span class="badge badge-blue status-badge">Crítico</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Gargalos Identificados</p>
+          <ul class="insight-list critical">
+            <li>Funil atual: Indicação → WhatsApp → Briefing → Reunião → Proposta → Abandono. Sem nenhum topo de funil digital</li>
+            <li>O ponto de perda declarado é "geralmente após o envio da proposta" — prospect chega frio, vê o preço e some</li>
+            <li>Sem conteúdo de autoridade prévia, o valor de R$ 630 a R$ 4.000 parece alto sem contexto</li>
+            <li>Prospect não segue a conta após o contato — sinal de que não há razão percebida para acompanhar</li>
+            <li>Sem nenhuma estrutura de captação ativa — aguardam indicação, não prospectam</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Funil Possível</p>
+          <ul class="insight-list positive">
+            <li>Topo: Conteúdo educativo sobre erros de presença digital para pequenos negócios — atrai quem tem o problema</li>
+            <li>Meio: Antes/depois de clientes atendidos + bastidores do processo de criação — constrói confiança e justifica o preço</li>
+            <li>Lead magnet "Não Erre Mais" já existe — promover no Instagram para capturar contatos qualificados</li>
+            <li>Fundo: CTA para WhatsApp com convite para diagnóstico gratuito — remove a frieza do primeiro contato</li>
+            <li>Retenção: Conteúdo de educação sobre branding e marketing para quem já é cliente — gera retenção e indicação ativa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-box-label">Insight Estratégico</div>
+        <div class="insight-box-text">O problema de conversão da Orís não é o preço — é a ausência de aquecimento. Um prospect que acompanha 30 dias de conteúdo antes de receber a proposta converte em uma taxa completamente diferente de alguém que chegou hoje por indicação. <strong>Conteúdo é a pré-venda que substitui a objeção de preço.</strong> O investimento em presença digital da própria Orís retorna diretamente em taxa de fechamento.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRANDING -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">🎨</div>
+      <div>
+        <h3>Branding & Identidade Visual</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">Como a marca aparece — e o que comunica</div>
+      </div>
+      <span class="badge badge-blue status-badge">Atenção</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Problemas Identificados</p>
+          <ul class="insight-list critical">
+            <li>Logo e identidade visual existem mas são aplicados de forma inconsistente — os 3 posts do Instagram têm estilos visuais diferentes entre si</li>
+            <li>Foto de perfil é um gradiente abstrato sem rosto — impossível criar conexão humana ou reconhecimento de marca</li>
+            <li>Sem destaques organizados — a identidade visual da empresa não está exposta no canal principal de apresentação</li>
+            <li>Portfólio desatualizado significa que o trabalho mais recente e de maior qualidade não está sendo comunicado</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que Pode Funcionar</p>
+          <ul class="insight-list positive">
+            <li>Os 3 posts existentes têm identidade visual diferenciada e uso de cor ousado — paleta laranja/amarelo/roxo com potencial real de destaque no feed</li>
+            <li>A proposta comercial tem design profissional e coerente — prova de que a identidade visual existe e funciona quando aplicada</li>
+            <li>Nome "Orís Criativos" é memorável, único e fácil de pesquisar — diferencial de marca já consolidado</li>
+            <li>Mateus e Helen como rostos da marca têm potencial alto — conteúdo de dupla tem mais engajamento e humaniza a empresa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPERAÇÃO & PROCESSOS -->
+  <div class="analise-block fade-up">
+    <div class="analise-header">
+      <div class="analise-icon">⚙️</div>
+      <div>
+        <h3>Operação & Estrutura Interna</h3>
+        <div style="font-size:12px;color:#6B7280;margin-top:2px;">Processos, equipe e organização do trabalho</div>
+      </div>
+      <span class="badge badge-blue status-badge">Atenção</span>
+    </div>
+    <div class="analise-body">
+      <div class="two-col">
+        <div>
+          <p class="col-label">Gargalos Identificados</p>
+          <ul class="insight-list critical">
+            <li>Dificuldade declarada com gestão de tempo — risco real de gargalo operacional ao escalar clientes sem processos definidos</li>
+            <li>Sem critérios claros de quais serviços priorizar — risco de aceitar projetos que consomem tempo sem retorno proporcional</li>
+            <li>Tentativas anteriores de organização não mantidas — padrão de iniciar sem sustentar precisa ser endereçado antes de escalar</li>
+            <li>Dois sócios com perfis complementares mas sem divisão clara de responsabilidades comunicada externamente</li>
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">O Que Pode Funcionar</p>
+          <ul class="insight-list positive">
+            <li>Processo de atendimento bem descrito: briefing → reunião → proposta → execução → aprovação → ajustes. Fluxo profissional que já existe internamente</li>
+            <li>Complementaridade Mateus (design/direção criativa) + Helen (marketing/SEO) é divisão natural e eficiente</li>
+            <li>Equipe de dois com especialidades distintas permite que os serviços Starter, Pro e Plus sejam entregues sem terceirizar partes críticas</li>
+            <li>Operação online sem necessidade de espaço físico reduz custo fixo e permite atender fora de Belo Horizonte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider"></div>
+
+<!-- OPORTUNIDADES -->
+<section id="oportunidades">
+  <div class="section-label">04 — Oportunidades Estratégicas</div>
+  <h2 class="section-title">Onde está o crescimento real</h2>
+  <p class="section-desc">Oportunidades identificadas com base nos dados, presença digital e estrutura atual do negócio.</p>
+
+  <div class="oport-grid">
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 01 · Alta Prioridade</div>
+      <h3>Transformar o Instagram da Orís no Principal Argumento de Venda</h3>
+      <p>A conta @oriscriativos precisa se tornar a vitrine viva do que a empresa entrega. Cada post é uma demonstração de capacidade. Cada resultado de cliente é uma prova social. Crescer o perfil de 26 para 500+ seguidores em 90 dias é possível com consistência — e cada seguidor é um prospect aquecido.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Impacto Direto em Conversão · Urgente
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 02 · Alta Prioridade</div>
+      <h3>Usar a Orís como Case Próprio — Aplicar nos Próprios Serviços</h3>
+      <p>A empresa vende identidade visual, estrutura de Instagram e página institucional. Aplicar tudo isso na própria marca transforma a Orís em demonstração ao vivo. Um prospect que vê o perfil reestruturado, o site institucional funcionando e o conteúdo consistente já entendeu o que vai comprar antes de qualquer reunião.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Prova de Conceito Viva · Urgente
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 03 · Alta Prioridade</div>
+      <h3>Ativar o Lead Magnet como Canal de Captação</h3>
+      <p>O manual "Não Erre Mais" já existe e está no Linktree. Com promoção ativa no Instagram — uma sequência de posts sobre os erros que o manual resolve — é possível gerar contatos qualificados de pequenos negócios que já identificaram o próprio problema e estão em busca de solução.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Ativo Pronto · Baixo Esforço
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 04 · Alta Prioridade</div>
+      <h3>Criar Jornada de Aquecimento Antes da Proposta</h3>
+      <p>O ponto de perda declarado é após o envio da proposta. A solução não é baixar o preço — é construir valor antes. Uma sequência de 3 a 5 conteúdos que o prospect consome antes da reunião (posts de resultado, processo de trabalho, depoimento de cliente) transforma completamente a percepção de preço.</p>
+      <div class="oport-impact" style="color:#059669;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Impacto Direto em Fechamento
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 05 · Média Prioridade</div>
+      <h3>Atualizar e Publicar Portfólio Ativo</h3>
+      <p>Portfólio desatualizado é o mesmo que não ter portfólio. Selecionar os 5 melhores trabalhos recentes, organizar em formato visual padronizado e publicar como destaques fixos no Instagram e no site institucional. O portfólio precisa ser acessível em menos de 10 segundos após alguém encontrar a empresa.</p>
+      <div class="oport-impact" style="color:#D97706;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Impacto Alto · Médio Prazo
+      </div>
+    </div>
+
+    <div class="oport-card">
+      <div class="oport-num">Oportunidade 06 · Médio Prazo</div>
+      <h3>Site Institucional como Hub de Autoridade</h3>
+      <p>A empresa vende páginas institucionais mas não tem a sua. Construir o site da Orís com portfólio, equipe, serviços e blog de conteúdo resolve dois problemas: credibilidade imediata e SEO para capturar buscas por "agência de marketing digital BH" e "estruturação digital pequenos negócios".</p>
+      <div class="oport-impact" style="color:#D97706;">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        SEO + Credibilidade · Médio Prazo
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="section-label">05 — Roadmap Estratégico</div>
+  <h2 class="section-title">O caminho em 3 fases</h2>
+  <p class="section-desc">Progressão do diagnóstico até a operação com presença digital ativa, portfólio vivo e captação consistente.</p>
+
+  <div class="roadmap-timeline">
+    <div class="roadmap-phase active">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:#0055E5;box-shadow:0 0 8px rgba(0,102,255,0.5);"></div>
+        <span class="phase-num">Fase 01</span>
+        <span class="phase-period">Dias 1–30</span>
+      </div>
+      <h3>Fundação da Própria Marca</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">🎯</span> Reescrever a bio do Instagram com posicionamento claro e CTA</li>
+        <li><span class="item-icon">📸</span> Adicionar foto de perfil com os fundadores — humanizar a marca</li>
+        <li><span class="item-icon">📌</span> Criar 3 posts fixados: quem somos, o que fazemos, portfólio</li>
+        <li><span class="item-icon">✨</span> Estruturar destaques: Serviços, Portfólio, Processo, Clientes</li>
+        <li><span class="item-icon">📦</span> Promover o lead magnet "Não Erre Mais" em sequência de posts</li>
+        <li><span class="item-icon">🗓️</span> Definir calendário mínimo de 3 posts/semana e manter</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:rgba(0,102,255,0.3);"></div>
+        <span class="phase-num">Fase 02</span>
+        <span class="phase-period">Dias 31–90</span>
+      </div>
+      <h3>Autoridade & Portfólio Vivo</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">🏆</span> Publicar série de antes/depois dos trabalhos realizados</li>
+        <li><span class="item-icon">🎬</span> Reels de bastidores do processo criativo — humaniza e educa</li>
+        <li><span class="item-icon">🌐</span> Lançar site institucional da Orís com portfólio e blog</li>
+        <li><span class="item-icon">💬</span> Criar sequência de aquecimento para enviar antes da proposta</li>
+        <li><span class="item-icon">📊</span> Conteúdo educativo sobre erros de presença digital</li>
+        <li><span class="item-icon">🎯</span> Meta: 300+ seguidores, leads chegando pelo Instagram</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <div class="phase-dot" style="background:rgba(0,102,255,0.2);"></div>
+        <span class="phase-num">Fase 03</span>
+        <span class="phase-period">Mês 4–6</span>
+      </div>
+      <h3>Escala & Captação Ativa</h3>
+      <ul class="roadmap-items">
+        <li><span class="item-icon">📢</span> Tráfego pago segmentado para pequenos negócios em BH</li>
+        <li><span class="item-icon">🤝</span> Parcerias com contadores, advogados e consultores que atendem PMEs</li>
+        <li><span class="item-icon">📈</span> Meta: 1.000+ seguidores, agenda com ocupação mínima de 80%</li>
+        <li><span class="item-icon">🎓</span> Posicionamento como referência: conteúdo sobre estruturação digital</li>
+        <li><span class="item-icon">💰</span> Meta: 5+ clientes ativos simultâneos com fluxo organizado</li>
+        <li><span class="item-icon">⚙️</span> Processos internos documentados para escalar sem gargalo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRÓXIMOS PASSOS -->
+<section id="proximos">
+  <div class="section-label">06 — Próximos Passos</div>
+  <h2 class="section-title">O que fazer agora</h2>
+  <p class="section-desc">Ações práticas, executáveis e de impacto imediato que podem ser iniciadas esta semana.</p>
+
+  <div class="proximos-grid">
+    <div class="passo-card">
+      <div class="passo-num">1</div>
+      <h3>Reestruturar o Perfil do Instagram Esta Semana</h3>
+      <p>Trocar a foto de perfil para uma com os fundadores. Reescrever a bio com posicionamento e CTA claro. Criar os 3 primeiros posts fixados: apresentação da dupla, o que a Orís entrega e um case de resultado. Isso é o mínimo para que qualquer prospect que chegar pelo Instagram não saia imediatamente.</p>
+      <span class="passo-deadline">→ Executar esta semana</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">2</div>
+      <h3>Definir Calendário de Conteúdo e Manter por 30 dias</h3>
+      <p>Comprometer-se com 3 posts por semana durante 30 dias corridos — sem exceção. A barreira histórica foi a inconsistência. Uma sugestão de divisão: segunda (educativo sobre erros de presença digital), quarta (bastidores ou processo de trabalho), sexta (resultado de cliente ou serviço em destaque).</p>
+      <span class="passo-deadline">→ Definir em 48 horas</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">3</div>
+      <h3>Criar Sequência de Aquecimento Pré-Proposta</h3>
+      <p>Montar um conjunto de 3 a 5 conteúdos — posts, Reels ou até um PDF curado — para enviar ao prospect via WhatsApp antes da reunião. Incluir: um case de resultado, o processo de trabalho da Orís, um depoimento de cliente e a lógica de por que o investimento retorna. Isso transforma a recepção do preço na proposta.</p>
+      <span class="passo-deadline">→ Criar nos próximos 7 dias</span>
+    </div>
+
+    <div class="passo-card">
+      <div class="passo-num">4</div>
+      <h3>Atualizar e Publicar os 5 Melhores Trabalhos do Portfólio</h3>
+      <p>Selecionar os trabalhos mais recentes e de maior qualidade, padronizar a apresentação visual e publicar em destaques do Instagram organizados por tipo de serviço (branding, site, Instagram, campanha). O portfólio precisa estar acessível antes de qualquer conversa — não apenas na reunião.</p>
+      <span class="passo-deadline">→ Executar nos próximos 10 dias</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="cta-section">
+    <h2>O diagnóstico está pronto.<br>E agora?</h2>
+    <p>
+      O Raio-X revelou os gargalos e o potencial. O próximo passo é transformar esse diagnóstico em estratégia real — com planejamento, estrutura e acompanhamento.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5531975073862" class="btn-whatsapp" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.51 5.833L0 24l6.335-1.493A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.49-5.2-1.348l-.373-.22-3.862.91.924-3.768-.242-.388A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Falar com a YM
+      </a>
+      <a href="#visao" class="btn-ghost">
+        Revisar a Análise →
+      </a>
+    </div>
+
+    <div class="next-service">
+      <div class="next-service-info">
+        <div class="next-service-label">Próximo Passo Recomendado</div>
+        <h4>Projeto Estratégico Completo</h4>
+        <p>Posicionamento, estruturação do Instagram, calendário editorial, sequência de aquecimento pré-proposta e acompanhamento mensal para a Orís Criativos.</p>
+      </div>
+      <div class="next-service-price">
+        <div class="price-label">A partir de</div>
+        <div class="price">Sob consulta</div>
+        <div class="price-label">Proposta personalizada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="28" height="32" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 10 L50 60 L90 10" stroke="#3D5BFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="50" cy="90" r="12" fill="#3D5BFF"/>
+        </svg>
+        <span class="ym-text">YM Marketing & Negócios</span>
+      </div>
+      <p>Estratégia de marketing com inteligência. Da presença digital à captação real de clientes.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <a href="#">Raio-X Estratégico</a>
+      <a href="#">Projeto Estratégico</a>
+      <a href="#">Posicionamento</a>
+      <a href="#">Consultoria Mensal</a>
+      <a href="#">Gestão de Instagram</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5531975073862" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/ymmarketingenegocios" target="_blank">Instagram</a>
+      <a href="#">E-mail</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 YM Marketing & Negócios · Raio-X Estratégico — Orís Criativos · Confidencial</p>
+    <span class="footer-sig">Desenvolvido com estratégia por YM</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
